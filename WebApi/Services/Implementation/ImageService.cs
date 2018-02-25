@@ -6,25 +6,25 @@ using WebApi.ImageAcquisition.Contract;
 
 namespace WebApi.Services
 {
-    public class MyService : IMyService
+    public class ImageService : IImageService
     {
         private readonly IImageAcquisition _imageAcquistion;
 
-        public MyService(IImageAcquisition imageAcquistion)
+        public ImageService(IImageAcquisition imageAcquistion)
         {
             _imageAcquistion = imageAcquistion;
         }
 
-        public string GetSomeStuff(int id)
+        public ImageResponse GetImage(int id)
         {
             var imageResponse = _imageAcquistion.GetImage();
 
-            return imageResponse.Image;
+            return imageResponse;
         }
 
-        public IEnumerable<string> GetAllStuff()
+        public IEnumerable<ImageResponse> GetAllImages()
         {
-            return new string[] { "value1ąę", "value2ŚĆ" };
+            throw new NotImplementedException();
         }
     }
 }

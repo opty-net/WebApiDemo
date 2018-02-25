@@ -9,6 +9,8 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using WebApi.ImageAcquisition.Contract;
+using WebApi.ImageAcquisition.Implementation;
 using WebApi.Services;
 
 namespace WebApi
@@ -32,7 +34,8 @@ namespace WebApi
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
 
             //Register you types
-            builder.RegisterType<MyService>().As<IMyService>();
+            builder.RegisterType<JpgFromFileModule>().As<IImageAcquisition>();
+            builder.RegisterType<ImageService>().As<IImageService>();
 
             // Set the dependency resolver to be Autofac.
             var container = builder.Build();
