@@ -190,7 +190,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="ImageAcquisition\Contract\IImageAcquisition.cs" />
+    <Compile Include="ImageAcquisition\Contract\ImageResponse.cs" />
+    <Compile Include="ImageAcquisition\Implementation\ImageAcquisition.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\IMyService.cs" />
+    <Compile Include="Services\MyService.cs" />
+    <Compile Include="Services\MyService2.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />

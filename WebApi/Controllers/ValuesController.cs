@@ -1,24 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+﻿using System.Collections.Generic;
 using System.Web.Http;
+using WebApi.Services;
 
 namespace WebApi.Controllers
 {
     public class ValuesController : ApiController
     {
+        private readonly IMyService _myService;
+
+        public ValuesController(IMyService myService)
+        {
+            _myService = myService;
+        }
+
         // GET api/values
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1ąę", "value2ŚĆ" };
+            return _myService.GetAllStuff();
         }
 
         // GET api/values/5
         public string Get(int id)
         {
-            return $"value with id={id}";
+            return _myService.GetSomeStuff(id);
         }
 
         // POST api/values

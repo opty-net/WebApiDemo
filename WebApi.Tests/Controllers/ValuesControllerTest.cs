@@ -7,17 +7,27 @@ using System.Web.Http;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using WebApi;
 using WebApi.Controllers;
+using WebApi.Services;
 
 namespace WebApi.Tests.Controllers
 {
     [TestClass]
     public class ValuesControllerTest
     {
+        ValuesController controller;
+
+        [TestInitialize]
+        public void Initialize()
+        {
+            IMyService iMyService = new MyService();
+            controller = new ValuesController(iMyService);
+        }
+
         [TestMethod]
         public void Get()
         {
             // Arrange
-            ValuesController controller = new ValuesController();
+
 
             // Act
             IEnumerable<string> result = controller.Get();
@@ -33,7 +43,7 @@ namespace WebApi.Tests.Controllers
         public void GetById()
         {
             // Arrange
-            ValuesController controller = new ValuesController();
+
 
             // Act
             string result = controller.Get(5);
@@ -46,7 +56,7 @@ namespace WebApi.Tests.Controllers
         public void Post()
         {
             // Arrange
-            ValuesController controller = new ValuesController();
+
 
             // Act
             controller.Post("value");
@@ -58,7 +68,7 @@ namespace WebApi.Tests.Controllers
         public void Put()
         {
             // Arrange
-            ValuesController controller = new ValuesController();
+
 
             // Act
             controller.Put(5, "value");
@@ -70,7 +80,7 @@ namespace WebApi.Tests.Controllers
         public void Delete()
         {
             // Arrange
-            ValuesController controller = new ValuesController();
+
 
             // Act
             controller.Delete(5);
