@@ -33,7 +33,7 @@ namespace WebApi
             // Register your Web API controllers.
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
 
-            //Register you types
+            //Register your types
             builder.RegisterType<JpgFromFileModule>().As<IImageAcquisition>();
             builder.RegisterType<ImageService>().As<IImageService>();
 
